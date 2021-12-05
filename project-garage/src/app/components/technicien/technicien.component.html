@@ -1,0 +1,48 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col mt-5 mb-3">
+            <h1 style="color:darkred">Liste des techniciens</h1>
+            <button class="btn btn-primary" [routerLink]="['/addTechnicien']">ajouter</button>
+            <input type="text" id="myInput" placeholder="Entrer un nom.." style="float: right;line-height: 30px; ">
+            <button class="btn btn-primary" (click)="myFunction()" style="float: right;"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div *ngIf="techniciens.length==0" class="alert alert-warning">Il n'y a pas des techniciens enregistrés</div>
+            <table *ngIf="techniciens.length>0" class="table table-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Numéro technicien</th>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th></th>
+                        <th>Nombre de voitures réparées</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let technicien of techniciens;let i = index">
+                       
+                         
+                        <th>{{technicien['numero_tech']}}</th>
+                        <td>{{technicien['prenom']}}</td>
+                        <td>{{technicien['nom']}}</td>
+                        <td></td>
+                        <td>{{technicien['nb_voiture']}}</td>
+                        <td><button class="btn btn-danger" (click)="deleteTechnicien(technicien['numero_tech'])"><i class="far fa-trash-alt"></i></button>
+                        </td>
+                         <td>
+                        <button class="btn btn-primary" [routerLink]="['/updateTechnicien',technicien['numero_tech']]"><i class="far fa-edit"></i></button>
+                    </td>   
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+ 
+

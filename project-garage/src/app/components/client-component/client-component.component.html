@@ -1,0 +1,48 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col mt-5 mb-3">
+            <h1 style="color:darkred">Liste des clients</h1>
+            <button class="btn btn-primary" [routerLink]="['/addClient']">ajouter</button>
+            <input type="text" id="myInput" placeholder="Chercher un client.." style="float: right;line-height: 30px; ">
+            <button class="btn btn-primary" (click)="myFunction()" style="float: right;"><i class="fas fa-search"></i></button>
+        
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col">
+            <div *ngIf="clients.length==0" class="alert alert-warning">Il n'y a pas des clients enregistrés</div>
+            <table *ngIf="clients.length>0" class="table table-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Numéro client</th>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>Adresse</th>
+                        <th>Nom du responsable administratif</th>
+                        
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let client of clients;let i = index">
+                       
+                        <th>{{client['num']}}</th>
+                        <td>{{client['prenom']}}</td>
+                        <td>{{client['nom']}}</td>
+                        <td>{{client['adresse']}}</td>
+                        <td>{{client['responsable']}}</td>
+                        <td><button class="btn btn-danger" (click)="deleteClient(client['num'])"><i class="far fa-trash-alt"></i></button>
+                            </td>
+                            <td>
+                            <button class="btn btn-primary" [routerLink]="['/updateClient',client['num']]"><i class="far fa-edit"></i></button>
+                        </td>  
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

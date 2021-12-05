@@ -1,0 +1,71 @@
+<app-header></app-header>
+<div class="container">
+    <form [formGroup]="updateClientForm" (ngSubmit)="updateClient()">
+        <div class="row">
+            <div class="col mt-5 mb-3">
+                <h1 style="color:darkred">Modifier un client</h1>
+                
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="num">Numéro du client</label>
+                    <input type="text" class="form-control" id="num"  name="num"  formControlName="num" [value]="_num" readonly >
+                    
+                    <div *ngIf=" num.touched && num.invalid ">
+                        <small *ngIf="num.errors['required']" class="form-text text-danger">Numéro du client obligatoire</small> 
+                        <small *ngIf="num.errors['pattern']" class="form-text text-danger">Numéro du client contient que des chiffres</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom" [value]="_nom" name="nom"  formControlName="nom">
+                    <div *ngIf="nom.touched && nom.invalid">
+                        <small *ngIf="nom.errors['required']" class="form-text text-danger">Nom du client obligatoire</small>
+                        <small *ngIf="nom.errors['pattern']" class="form-text text-danger">Nom du client invalid</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" id="prenom" [value]="_prenom" name="prenom"  formControlName="prenom">
+                    <div *ngIf="prenom.touched && prenom.invalid">
+                        <small *ngIf="prenom.errors['required']" class="form-text text-danger">Prénom du client obligatoire</small>
+                        <small *ngIf="prenom.errors['pattern']" class="form-text text-danger">Prénom du client invalid</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="adresse">Adresse</label>
+                    <select  name="adresse" id="adresse"  class="form-control custom-select"   name="adresse"  formControlName="adresse"  >
+                        <option *ngFor="let commune of communes" value="commune['nom_commune']"  [selected]="commune['nom_commune'] === _adresse" >{{commune['nom_commune']}}</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="responsable">Nom du responsable administratif</label>
+                    <select  name="responsable" id="responsable"  class="form-control custom-select"   name="responsable"  formControlName="responsable" style="width: 500px; " >
+                        <option *ngFor="let responsable of responsables" value="responsable['nom_responsable']" [selected]="responsable['nom_responsable'] === _responsable">{{responsable['nom_responsable']}}</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="updateClientForm.invalid" >Enregistrer</button>
+    </form>
+</div>  

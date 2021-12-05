@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-md navbar-light  bg-light">
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="navbar-brand" [routerLink]="['/Acceuil']"><i class="fas fa-tachometer-alt" style="color:darkred"></i> Page d'acceuil</a>
+            </li>
+        </ul>
+
+<!--         <form class="form-inline my-2 my-lg-0">
+            
+            <button  *ngIf="estAdmin" class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Responsables']"><i class="fas fa-city"></i> Responsables</button>
+            <button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Clients']"><i class="fas fa-user"></i> Clients</button>
+            <button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Techniciens']"><i class="fas fa-tools"></i> Techniciens</button>
+            <button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Voitures']"><i class="fas fa-car"></i> Voitures</button>
+            <button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Interventions']"><i class="fas fa-cogs"></i> Interventions</button>
+            <button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Communes']"><i class="fas fa-city"></i> Communes</button>
+            <button  class="btn btn-danger my-2 my-sm-0" (click)="logout()">logout</button>
+        </form> -->
+        <form class="form-inline my-2 my-lg-0">
+        <div class="dropdown" style="margin-right: 30px;">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Voir plus
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item"><button  *ngIf="estAdmin" class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Responsables']" style="width: 150px;"><i class="fas fa-city"></i> Responsables</button></a>
+              <a class="dropdown-item"><button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Techniciens']"style="width: 150px;"><i class="fas fa-tools"></i> Techniciens</button></a>
+              <a class="dropdown-item"><button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Interventions']"style="width: 150px;"><i class="fas fa-cogs"></i> Interventions</button></a>
+              <a class="dropdown-item"><button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Communes']"style="width: 150px;"><i class="fas fa-city"></i> Communes</button></a>
+              <a class="dropdown-item"><button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Voitures']"style="width: 150px;"><i class="fas fa-car"></i> Voitures</button></a>
+              <a class="dropdown-item"><button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Clients']"style="width: 150px;"><i class="fas fa-user"></i> Clients</button></a>
+            </div>
+          </div> 
+          <button  class="btn btn-danger my-2 my-sm-0" (click)="logout()">Déconnexion</button>
+        </form>
+    </div>
+</nav>

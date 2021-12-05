@@ -1,0 +1,70 @@
+<app-header></app-header>
+<div class="container">
+    <form [formGroup]="updateResponsableForm" (ngSubmit)="updateResponsable()">
+        <div class="row">
+            <div class="col mt-5 mb-3">
+                <h1 style="color:darkred">Modifier un responsable</h1>
+                
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="id">ID du Responsable</label>
+                    <input type="text" class="form-control" id="id"  name="id"  formControlName="id" [value]="_id" readonly >
+                    
+                    <div *ngIf=" id.touched && id.invalid ">
+                        <small *ngIf="id.errors['required']" class="form-text text-danger">id du responsable obligatoire</small> 
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom" [value]="_nom" name="nom"  formControlName="nom">
+                    <div *ngIf="nom.touched && nom.invalid">
+                        <small *ngIf="nom.errors['required']" class="form-text text-danger">Nom du responsable obligatoire</small>
+                        <small *ngIf="nom.errors['pattern']" class="form-text text-danger">Nom du responsable invalide</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" id="prenom" [value]="_prenom" name="prenom"  formControlName="prenom">
+                    <div *ngIf="prenom.touched && prenom.invalid">
+                        <small *ngIf="prenom.errors['required']" class="form-text text-danger">Prénom du responsable obligatoire</small>
+                        <small *ngIf="prenom.errors['pattern']" class="form-text text-danger">Prénom du responsable invalide</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="mot_de_passe">Mot de passe</label>
+                    <input type="text" class="form-control" id="mot_de_passe" [value]="_mot_de_passe" name="mot_de_passe"  formControlName="mot_de_passe" >
+                    
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="est_admin">Administrateur de la base de données</label>
+                    <select  name="est_admin" id="est_admin"  class="form-control custom-select"   name="est_admin"  formControlName="est_admin"  >
+                        
+                        <option  value="0" [selected]="_est_admin === '0'">Non</option>
+                        <option  value="1" [selected]="_est_admin === '1'">Oui</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="updateResponsableForm.invalid" >Enregistrer</button>
+    </form>
+</div>  

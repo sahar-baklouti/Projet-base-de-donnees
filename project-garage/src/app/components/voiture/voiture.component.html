@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col mt-5 mb-3">
+            <h1 style="color:darkred">Liste des voitures</h1>
+            <button class="btn btn-primary" [routerLink]="['/addVoiture']">ajouter</button>
+            <input type="text" id="myInput" placeholder="Entrer une matricule.." style="float: right;line-height: 30px; ">
+            <button class="btn btn-primary" (click)="myFunction()" style="float: right;"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div *ngIf="voitures.length==0" class="alert alert-warning">Il n'y a pas des voitures enregistrées</div>
+            <table *ngIf="voitures.length>0" class="table table-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Matricule</th>
+                        <th>Marque</th>
+                        <th>Type</th>
+                        <th>Année de fabrication</th>
+                        <th>Kilométrage</th>
+                        <th>Date d'arrivée</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let voiture of voitures;let i = index">
+                       
+                         
+                        <th>{{voiture['matricule']}}</th>
+                        <td>{{voiture['marque']}}</td>
+                        <td>{{voiture['type']}}</td>
+                        <td>{{voiture['annee_fabrication']}}</td>
+                        <td>{{voiture['kilometrage']}}</td>
+                        <td>{{voiture['date_entree']}}</td>
+                        <td><button class="btn btn-danger" (click)="deleteVoiture(voiture['matricule'])"><i class="far fa-trash-alt"></i></button>
+                        </td>
+                         <td>
+                        <button class="btn btn-primary" [routerLink]="['/updateVoiture',voiture['matricule']]"><i class="far fa-edit"></i></button>
+                    </td>   
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+ 

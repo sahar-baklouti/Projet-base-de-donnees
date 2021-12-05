@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="container">
+    <form [formGroup]="updateTechnicienForm" (ngSubmit)="updateTechnicien()">
+        <div class="row">
+            <div class="col mt-5 mb-3">
+                <h1 style="color:darkred">Modifier un technicien</h1>
+                
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="numero_tech">Numéro du technicien</label>
+                    <input type="text" class="form-control" id="numero_tech"  name="numero_tech"  formControlName="numero_tech" [value]="_numero_tech" readonly >
+                    
+                    
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom" [value]="_nom" name="nom"  formControlName="nom">
+                    <div *ngIf="nom.touched && nom.invalid">
+                        <small *ngIf="nom.errors['required']" class="form-text text-danger">Nom du technicien obligatoire</small>
+                        <small *ngIf="nom.errors['pattern']" class="form-text text-danger">Nom du technicien invalid</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" id="prenom" [value]="_prenom" name="prenom"  formControlName="prenom">
+                    <div *ngIf="prenom.touched && prenom.invalid">
+                        <small *ngIf="prenom.errors['required']" class="form-text text-danger">Prénom du technicien obligatoire</small>
+                        <small *ngIf="prenom.errors['pattern']" class="form-text text-danger">Prénom du technicien invalid</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nb_voiture">Nombre de voitures réparées</label>
+                    <input type="text" class="form-control" id="nb_voiture" [value]="_nb_voiture" name="nb_voiture"  formControlName="nb_voiture" >
+                    
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="updateTechnicienForm.invalid" >Enregistrer</button>
+    </form>
+</div>  

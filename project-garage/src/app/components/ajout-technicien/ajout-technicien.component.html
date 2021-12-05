@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<div class="container">
+    <form [formGroup]="ajoutTechnicienForm" (ngSubmit)="ajouter()">
+        <div class="row">
+            <div class="col mt-5 mb-3">
+                <h1 style="color:darkred">Ajouter un technicien</h1>
+                
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="nom">Nom du technicien</label>
+                    <input type="text" class="form-control" id="nom"  name="nom"  formControlName="nom" style="width: 500px; ">
+                    <div *ngIf="nom.touched && nom.invalid">
+                        <small *ngIf="nom.errors['required']" class="form-text text-danger">nom obligatoire</small>
+                        <small *ngIf="nom.errors['pattern']" class="form-text text-danger">nom invalide</small>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="prenom">Prénom du technicien</label>
+                    <input type="text" class="form-control" id="prenom" name="prenom"  formControlName="prenom" style="width: 500px;">
+                    <div *ngIf="prenom.touched && prenom.invalid">
+                        <small *ngIf="prenom.errors['required']" class="form-text text-danger">prenom obligatoire</small>
+                        <small *ngIf="prenom.errors['pattern']" class="form-text text-danger">prénom invalide</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="form-row">
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="nb_voiture">Nombre de voitures réparées</label>
+                    <input type="text" class="form-control" id="nb_voiture"  name="nb_voiture"  formControlName="nb_voiture"style="width: 500px;" >
+                    <div *ngIf="nb_voiture.touched && nb_voiture.invalid">
+                        <small *ngIf="nb_voiture.errors['pattern']" class="form-text text-danger">nombre de voitures invalide</small>
+                    </div>
+                
+            </div>
+        </div>
+        
+            
+            
+        </div>
+        
+        
+
+
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="ajoutTechnicienForm.invalid ">Ajouter</button>
+    </form>
+</div>  

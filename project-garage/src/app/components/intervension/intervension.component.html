@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col mt-5 mb-3">
+            <h1 style="color:darkred">Liste des interventions</h1>
+            <button class="btn btn-primary" [routerLink]="['/addIntervention']">ajouter</button>
+            <input type="text" id="myInput" placeholder="Chercher un technicien.." style="float: right;line-height: 30px; ">
+            <button class="btn btn-primary"  style="float: right;" (click)="myFunction()"><i class="fas fa-search"></i></button> 
+        
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col">
+            <div *ngIf="interventions.length==0" class="alert alert-warning">Il n'y a pas d'interventions enregistrées</div>
+            <table *ngIf="interventions.length>0" class="table table-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Client </th>
+                        <th>Voiture</th>
+                        <th>Technicien</th>
+                        <th>Forfait</th>
+                        
+                        
+                        <th></th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let intervention of interventions;let i = index">
+                       
+                        <th>{{intervention['client']}}</th>
+                        <td>{{intervention['voiture']}}</td>
+                        <td>{{intervention['technicien']}}</td>
+                        <td>{{intervention['forfait']}}</td>
+                         <td><button class="btn btn-danger" (click)="deleteIntervention(intervention['client'],intervention['voiture'],intervention['technicien'],intervention['forfait'])"><i class="far fa-trash-alt"></i></button>
+                        </td>
+                            
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

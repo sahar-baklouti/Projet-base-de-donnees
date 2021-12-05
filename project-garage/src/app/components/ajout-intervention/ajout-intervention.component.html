@@ -1,0 +1,70 @@
+<app-header></app-header>
+<div class="container">
+    <form [formGroup]="ajoutInterventionForm" (ngSubmit)="ajouter()">
+        <div class="row">
+            <div class="col mt-5 mb-3">
+                <h1 style="color:darkred">Ajouter une intervention</h1>
+                
+            </div>
+        </div>
+        <div class="form-row">
+             <div class="col-md-6">
+                <div class="form-group">
+                    <label for="client">Client</label>
+
+                    <select   name="client" id="client"  class="form-control custom-select"   name="client"  formControlName="client"  >
+                        <option *ngFor="let intervention of clients" value="intervention['client']">{{intervention['client']}}</option>
+                        
+                    </select>
+                </div>
+            </div> 
+        </div>
+            <div class="form-row">
+             <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="voiture">Voiture</label>
+
+                    <select   name="voiture" id="voiture"  class="form-control custom-select"   name="voiture"  formControlName="voiture">
+                        <option *ngFor="let intervention of voitures" value="intervention['matricule']">{{intervention['matricule']}}</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+            <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="technicien">Technicien</label>
+
+                    <select   name="technicien" id="technicien"  class="form-control custom-select" name="technicien"  formControlName="technicien">
+                        <option *ngFor="let intervention of techniciens" value="intervention['technicien']">{{intervention['technicien']}}</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="forfait">Forfait</label>
+
+                    <select   name="forfait" id="forfait" class="form-control custom-select" name="forfait"  formControlName="forfait">
+                        <option *ngFor="let intervention of forfaits" value="intervention['type_forfait']">{{intervention['type_forfait']}}</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+            
+            
+    
+        
+
+
+
+
+        <button type="submit" class="btn btn-primary" >Ajouter</button> 
+    </form>
+</div>  
+ 

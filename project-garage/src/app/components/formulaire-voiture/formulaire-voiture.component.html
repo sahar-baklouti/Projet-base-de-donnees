@@ -1,0 +1,78 @@
+<app-header></app-header>
+<div class="container">
+    <form [formGroup]="updateVoitureForm" (ngSubmit)="updateVoiture()">
+        <div class="row">
+            <div class="col mt-5 mb-3">
+                <h1 style="color:darkred">Modifier une voiture</h1>
+                
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="matricule">Matricule</label>
+                    <input type="text" class="form-control" id="matricule"  name="matricule"  formControlName="matricule" [value]="_matricule"  >
+                    
+                    <div *ngIf=" matricule.touched && matricule.invalid ">
+                        <small *ngIf="matricule.errors['required']" class="form-text text-danger">Matricule obligatoire</small> 
+                        <small *ngIf="matricule.errors['pattern']" class="form-text text-danger">Utiliser seulement des lettres majuscules. Exemple de matricule valide : F-AB-456-CA-69.</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="marque">Marque</label>
+                    <input type="text" class="form-control" id="marque" [value]="_marque" name="marque"  formControlName="marque">
+                    <div *ngIf="marque.touched && marque.invalid">
+                        <small *ngIf="marque.errors['required']" class="form-text text-danger">Marque obligatoire</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <input type="text" class="form-control" id="type" [value]="_type" name="type"  formControlName="type">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="kilometrage">Kilométrage</label>
+                    <input type="text" class="form-control" id="kilometrage" [value]="_kilometrage" name="kilometrage"  formControlName="kilometrage" >
+                    <div *ngIf="kilometrage.touched && kilometrage.invalid">
+                        <small *ngIf="kilometrage.errors['required']" class="form-text text-danger">Kilométrage obligatoire</small>
+                        <small *ngIf="kilometrage.errors['pattern']" class="form-text text-danger">Kilométrage invalide</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="annee_fabrication">Année de fabrication</label>
+                    <input type="text" class="form-control" id="annee_fabrication" [value]="_annee_fabrication" name="annee_fabrication"  formControlName="annee_fabrication">
+                    <div *ngIf="annee_fabrication.touched && annee_fabrication.invalid">
+            
+                        <small *ngIf="annee_fabrication.errors['pattern']" class="form-text text-danger">Année de fabrication invalide</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="date_entree">Date d'entrée</label>
+                    <input type="text" class="form-control" id="date_entree" [value]="_date_entree" name="date_entree"  formControlName="date_entree">
+                    <div *ngIf="date_entree.touched && date_entree.invalid">
+                        <small *ngIf="date_entree.errors['required']" class="form-text text-danger">Date d'entrée obligatoire</small>
+                        <small *ngIf="date_entree.errors['pattern']" class="form-text text-danger">Date d'entrée invalide</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="updateVoitureForm.invalid" >Enregistrer</button>
+    </form>
+</div>  

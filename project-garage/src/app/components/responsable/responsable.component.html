@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col mt-5 mb-3">
+            <h1 style="color:darkred">Liste des responsables</h1>
+            <button class="btn btn-primary" [routerLink]="['/addResponsable']">ajouter</button>
+            <input type="text" id="myInput" placeholder="Chercher un responsable.." style="float: right;line-height: 30px; ">
+            <button class="btn btn-primary" (click)="myFunction()" style="float: right;"><i class="fas fa-search"></i></button>
+        
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="col">
+            <div *ngIf="responsables.length==0" class="alert alert-warning">Il n'y a pas de responsables enregistrés</div>
+            <table *ngIf="responsables.length>0" class="table table-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID responsable</th>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>Mot de passe</th>
+                        <th>Administrateur de la base de données</th>
+                        
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let responsable of responsables;let i = index">
+                       
+                        <th>{{responsable['id']}}</th>
+                        <td>{{responsable['prenom']}}</td>
+                        <td>{{responsable['nom']}}</td>
+                        <td>{{responsable['mot_de_passe']}}</td>
+                        <td>{{responsable['est_admin']}}</td>
+                        <td><button class="btn btn-danger" (click)="deleteResponsable(responsable['id'])"><i class="far fa-trash-alt"></i></button>
+                            </td>
+                            <td>
+                            <button class="btn btn-primary" [routerLink]="['/updateResponsable',responsable['id']]"><i class="far fa-edit"></i></button> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

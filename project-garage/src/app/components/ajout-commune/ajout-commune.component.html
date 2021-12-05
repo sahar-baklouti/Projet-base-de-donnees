@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<div class="container">
+    <form [formGroup]="ajoutCommuneForm" (ngSubmit)="ajouter()">
+        <div class="row">
+            <div class="col mt-5 mb-3">
+                <h1 style="color:darkred">Ajouter une commune</h1>
+                
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="nom_commune">Nom du Commune</label>
+                    <input type="text" class="form-control" id="nom_commune"  name="nom_commune"  formControlName="nom_commune" style="width: 500px; ">
+                    <div *ngIf="nom_commune.touched && nom_commune.invalid">
+                        <small *ngIf="nom_commune.errors['required']" class="form-text text-danger">nom obligatoire</small>
+                    </div>
+                </div>
+            </div>
+        
+            
+            
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="ajoutCommuneForm.invalid ">Ajouter</button>
+    </form>
+</div>  
+

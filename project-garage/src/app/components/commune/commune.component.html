@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col mt-5 mb-3">
+            <h1 style="color:darkred">Liste des communes</h1>
+            <button class="btn btn-primary" [routerLink]="['/addCommune']">ajouter</button>
+            <input type="text" id="myInput" placeholder="Entrer une commune.." style="float: right;line-height: 30px; ">
+            <button class="btn btn-primary" (click)="myFunction()" style="float: right;"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div *ngIf="communes.length==0" class="alert alert-warning">Il n'y a pas des communes enregistrées</div>
+            <table *ngIf="communes.length>0" class="table table-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nom commune</th>
+                        <th>Nombre de voitures réparées</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let commune of communes;let i = index">
+                       
+                         
+                        <td>{{commune['nom_commune']}}</td>
+                        <td>{{commune['nombre_client']}}</td>
+                        <td><button class="btn btn-danger" (click)="deleteCommune(commune['nom_commune'])"><i class="far fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+ 
+

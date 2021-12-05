@@ -1,0 +1,66 @@
+<app-header></app-header>
+<div class="container">
+    <form [formGroup]="ajoutClientForm" (ngSubmit)="ajouter()">
+        <div class="row">
+            <div class="col mt-5 mb-3">
+                <h1 style="color:darkred">Ajouter un client</h1>
+                
+            </div>
+        </div>
+        <div class="form-row">
+            
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom"  name="nom"  formControlName="nom" style="width: 500px; ">
+                    <div *ngIf="nom.touched && nom.invalid">
+                        <small *ngIf="nom.errors['required']" class="form-text text-danger">Nom du client obligatoire</small>
+                        <small *ngIf="nom.errors['pattern']" class="form-text text-danger">Nom du client invalide</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" id="prenom" name="prenom"  formControlName="prenom" style="width: 500px;">
+                    <div *ngIf="prenom.touched && prenom.invalid">
+                        <small *ngIf="prenom.errors['required']" class="form-text text-danger">Prénom du client obligatoire</small>
+                        <small *ngIf="prenom.errors['pattern']" class="form-text text-danger">Prénom du client invalide</small>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="form-row">
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="adresse">Adresse</label>
+                    <select  name="adresse" id="adresse"  class="form-control custom-select"   name="adresse"  formControlName="adresse"  >
+                        <option *ngFor="let commune of communes" value="commune['nom_commune']" >{{commune['nom_commune']}}</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="responsable">Nom du responsable administratif</label>
+                    <select  name="responsable" id="responsable"  class="form-control custom-select"   name="responsable"  formControlName="responsable"  >
+                        <option *ngFor="let responsable of responsables" value="responsable['nom_responsable']">{{responsable['nom_responsable']}}</option>
+                        
+                    </select>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+
+
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="ajoutClientForm.invalid ">Ajouter</button>
+    </form>
+</div>  

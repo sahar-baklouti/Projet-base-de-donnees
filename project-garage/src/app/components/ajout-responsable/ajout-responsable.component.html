@@ -1,0 +1,69 @@
+<app-header></app-header>
+<div class="container">
+    <form [formGroup]="ajoutResponsableForm" (ngSubmit)="ajouter()">
+        <div class="row">
+            <div class="col mt-5 mb-3">
+                <h1 style="color:darkred">Ajouter un responsable</h1>
+                
+            </div>
+        </div>
+        <div class="form-row">
+            
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" class="form-control" id="nom"  name="nom"  formControlName="nom" style="width: 500px; ">
+                    <div *ngIf="nom.touched && nom.invalid">
+                        <small *ngIf="nom.errors['required']" class="form-text text-danger">Nom du responsable obligatoire</small>
+                        <small *ngIf="nom.errors['pattern']" class="form-text text-danger">Nom du responsable invalide</small>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" class="form-control" id="prenom" name="prenom"  formControlName="prenom" style="width: 500px;">
+                    <div *ngIf="prenom.touched && prenom.invalid">
+                        <small *ngIf="prenom.errors['required']" class="form-text text-danger">Prénom du responsable obligatoire</small>
+                        <small *ngIf="prenom.errors['pattern']" class="form-text text-danger">Prénom du responsable invalide</small>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="form-row">
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="mot_de_passe">Mot de passe</label>
+                    <input type="text" class="form-control" id="mot_de_passe" name="mot_de_passe"  formControlName="mot_de_passe" style="width: 500px;">
+                    <div *ngIf="mot_de_passe.touched && mot_de_passe.invalid">
+                        <small *ngIf="mot_de_passe.errors['required']" class="form-text text-danger">Mot de passe obligatoire</small>
+                        
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="est_admin">Administrateur de la base de données</label>
+                    <select  name="est_admin" id="est_admin"  class="form-control custom-select"   name="est_admin"  formControlName="est_admin"  >
+                        <option  value="0">Non</option>
+                        <option  value="1">Oui</option>
+                    </select>
+                    <div *ngIf="est_admin.touched && est_admin.invalid">
+                        <small *ngIf="est_admin.errors['required']" class="form-text text-danger">Choix obligatoire</small>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="ajoutResponsableForm.invalid ">Ajouter</button>
+    </form>
+</div>  

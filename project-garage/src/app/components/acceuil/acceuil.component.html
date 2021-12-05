@@ -1,0 +1,93 @@
+<app-header></app-header>
+<div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3" style="text-align: center;color:darkred" ><i class="fas fa-warehouse"></i> Bienvenue au garage</h1>
+      <div class="row" style="margin-top: 30px;">
+        <div class="col">
+          <div class="col-md">
+            <div class="card text-center  mb-3" id="total-clients">
+                <div class="card-header">
+                  <h5 class="card-title" >Nombre des clients du garage
+                     </h5>
+                </div>
+                <div class="card-body">
+
+                              <h3 class="card-title" *ngIf="clients_number != ''" style="color: black;">{{clients_number}}</h3>
+                              
+                              <h3 class="card-title" *ngIf="clients_number == ''" style="color: black;">0</h3>
+
+                </div>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col">
+          <div class="col-md">
+            <div class="card text-center   mb-3" id="total-voitures">
+                <div class="card-header">
+                  <h5 class="card-title" >Voitures dans le garage</h5>
+                </div>
+                <div class="card-body">
+
+                              <h3 class="card-title" *ngIf="voitures_number != ''" style="color: black;">{{voitures_number}}</h3>
+                              <h3 class="card-title" *ngIf="voitures_number == ''" style="color: black;">0</h3>
+                </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col">
+          <div class="col-md">
+            <div class="card text-center   mb-3" id="total-interventions">
+                <div class="card-header">
+                  <h5 class="card-title" >Interventions en cours</h5>
+                </div>
+                <div class="card-body">
+
+                              <h3 class="card-title" *ngIf="interventions_number != ''" style="color: black;">{{interventions_number}}</h3>
+                              <h3 class="card-title" *ngIf="interventions_number == ''" style="color: black;">0</h3>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="col-md">
+            <div class="card text-center  mb-3" id="total-clients">
+                <div class="card-header">
+                  <h5 class="card-title" >Nombre des voitures réparées </h5>
+                </div>
+                <div class="card-body">
+
+                              <h3 class="card-title" *ngIf="total_voitures_number != ''" style="color: black;">{{total_voitures_number}}</h3>
+                              
+                              <h3 class="card-title" *ngIf="total_voitures_number == ''" style="color: black;">0</h3>
+
+                </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+      <div class="row" style="margin-top: 30px;"></div>
+      
+    </div>
+    <div class="container">
+      <form class="form-inline my-2 my-lg-0">
+      <div class="row" >
+        <div class="col"><button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Clients']"><i class="fas fa-user" style="width: 100px;"></i> Clients</button></div>
+        <div class="col"><button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Voitures']"><i class="fas fa-car" style="width: 100px;"></i> Voitures</button></div>
+        <div class="col"><button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Techniciens']"><i class="fas fa-tools" style="width: 100px;"></i> Techniciens</button></div>
+        <div class="col"><button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Interventions']"><i class="fas fa-cogs" style="width: 100px;"></i> Interventions</button></div>
+        <div class="col"><button  class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Communes']"><i class="fas fa-city" style="width: 100px;"></i> Communes</button></div>
+        <div class="col"><button *ngIf="estAdmin" class="btn btn-info my-2 my-sm-0 mx-3" [routerLink]="['/Responsables']"><i class="fas fa-city" style="width: 100px;"></i> Responsables</button></div>
+      </div>
+    </form>
+    </div>
+  </div>
+
+  
+    
+    
+    
+    
+    
