@@ -35,7 +35,7 @@ apt update
 apt install npm
 ```
 
-### Pepare environment
+# Pepare environment
 Open a terminal or a cmd for windows user
 ```bash
 cd Projet-base-de-donnees
