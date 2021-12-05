@@ -38,7 +38,7 @@ apt install npm
 ### Pepare environment
 Open a terminal or a cmd for windows user
 ```bash
-cd local_database
+cd Projet-base-de-donnees
 pip install -r requirement.txt
 npm install @angular/cli
 ```
@@ -48,12 +48,12 @@ It all thanks, you can now run the project
 ### Windows
 Open a cmd
 ```bash
-cd local_database
+cd Projet-base-de-donnees
 start.bat
 ```
 ### Mac - Linux
 Open a terminal
 ```bash
-cd local_database
+cd Projet-base-de-donnees
 sh start.sh
 ```
