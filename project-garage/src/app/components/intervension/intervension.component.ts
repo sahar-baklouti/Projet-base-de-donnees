@@ -31,6 +31,16 @@ export class IntervensionComponent implements OnInit {
       error=>console.log(error)      
     )
   }
+  ajoutCommentaire(client:String,voiture:string,technicien:string) {
+    let interventionDescription = client+"&"+voiture+"&"+technicien
+    this._interventionService.deleteIntervention(interventionDescription).subscribe(
+      result=>{
+        console.log(result);
+        this.ngOnInit();
+      },
+      error=>console.log(error)      
+    )
+  }
   myFunction(){
     let _nom = (<HTMLInputElement>document.getElementById("myInput")).value;
     this._interventionService.getInterventionByNomTechnicien(_nom).subscribe(

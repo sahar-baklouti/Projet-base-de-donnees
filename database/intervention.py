@@ -12,7 +12,7 @@ class Intervention(TableCreationInterface):
 
     @staticmethod
     def init_table(connector: SqlConnectionManager):
-        intervention1 = {"numero_tech": "1", "matricule": "F-AB-456-CA-69", "numero_client": "1", "id_forfait": "1"}
+        intervention1 = {"numero_tech": "1", "matricule": "F-AB-456-CA-69", "numero_client": "1", "id_forfait": "1","commentaire" :"ceci est un commentaire"}
         intervention2 = {"numero_tech": "2", "matricule": "F-AC-789-FB-69", "numero_client": "2", "id_forfait": "2"}
 
         connector.insert_into_data_base(Intervention.table_name, intervention1)
@@ -22,7 +22,7 @@ class Intervention(TableCreationInterface):
     def create_table(connector: SqlConnectionManager):
         connector.execute(
             f"CREATE TABLE {Intervention.table_name} (numero_tech INTEGER, matricule VARCHAR(16),"
-            f"numero_client INTEGER, id_forfait INTEGER, "
+            f"numero_client INTEGER, id_forfait INTEGER, commentaire VARCHAR(500),"
             f"FOREIGN KEY (numero_tech) REFERENCES {Technicien.table_name}(numero_tech),"
             f"FOREIGN KEY (numero_client) REFERENCES {Client.table_name}(numero_client),"
             f"FOREIGN KEY (matricule) REFERENCES {Voiture.table_name}(matricule),"

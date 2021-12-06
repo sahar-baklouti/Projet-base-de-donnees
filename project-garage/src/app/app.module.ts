@@ -26,6 +26,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ResponsableComponent } from './components/responsable/responsable.component';
 import { AjoutResponsableComponent } from './components/ajout-responsable/ajout-responsable.component';
 import { FormulaireResponsableComponent } from './components/formulaire-responsable/formulaire-responsable.component';
+import { AjoutCommentaireComponent } from './components/ajout-commentaire/ajout-commentaire.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { FormulaireResponsableComponent } from './components/formulaire-responsa
     LoginComponent,
     ResponsableComponent,
     AjoutResponsableComponent,
-    FormulaireResponsableComponent
+    FormulaireResponsableComponent,
+    AjoutCommentaireComponent
   ],
   imports: [
     BrowserModule,

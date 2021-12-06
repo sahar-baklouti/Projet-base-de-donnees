@@ -10,6 +10,8 @@ export class IntervensionServiceService {
   private _ajouterInterventionsUrl = "http://localhost:5000/ajouterIntervention";
   private _getInterventionByNom = "http://localhost:5000/getInterventionNomTechnicien/";
   private _getInterventionsNumber = "http://localhost:5000/getInterventionsNumber/";
+  private _ajoutCommentaireIntervention = "http://localhost:5000/ajoutCommentaireIntervention";
+  private _getCommentaireIntervention = "http://localhost:5000/getCommentaireIntervention/";
   constructor(private http: HttpClient) { }
   getAllInterventions() {
     return this.http.get<any>(this._getAllInterventionsUrl);
@@ -24,9 +26,16 @@ export class IntervensionServiceService {
   }
   ajouterIntervention(interventionInstance: Intervention){
     return this.http.post<any>(this._ajouterInterventionsUrl,interventionInstance); 
-    //return this.http.get<any>(this._ajouterInterventionsUrl);
+  
+  }
+  ajouterCommentaireIntervention(InterventionDescription: string){
+    return this.http.post<any>(this._ajoutCommentaireIntervention,InterventionDescription); 
+  
   }
   getInterventionsNumber(){
     return this.http.get<any>(this._getInterventionsNumber);
+  }
+  getCommentaireIntervention(InterventionDescription: string){
+    return this.http.get<any>(this._getCommentaireIntervention+InterventionDescription);
   }
 }

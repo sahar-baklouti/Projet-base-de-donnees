@@ -19,6 +19,7 @@ import { ResponsableComponent } from './components/responsable/responsable.compo
 import { AjoutResponsableComponent } from './components/ajout-responsable/ajout-responsable.component';
 import { FormulaireResponsableComponent } from './components/formulaire-responsable/formulaire-responsable.component';
 import { AuthentificationGuard } from './guards/authentification.guard';
+import { AjoutCommentaireComponent } from './components/ajout-commentaire/ajout-commentaire.component';
 
 const routes: Routes = [{
   path: '',
@@ -27,6 +28,11 @@ const routes: Routes = [{
 {
   path: 'updateClient/:numClient',
   component: FormulaireClientComponent,
+  
+},
+{
+  path: 'ajoutCommentaire/:intervention',
+  component: AjoutCommentaireComponent,
   
 },
 {

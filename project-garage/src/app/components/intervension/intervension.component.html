@@ -24,7 +24,7 @@
                         
                         
                         <th></th>
-                        
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,7 +36,10 @@
                         <td>{{intervention['forfait']}}</td>
                          <td><button class="btn btn-danger" (click)="deleteIntervention(intervention['client'],intervention['voiture'],intervention['technicien'],intervention['forfait'])"><i class="far fa-trash-alt"></i></button>
                         </td>
-                            
+                        <td>
+                            <button class="btn btn-primary"  [routerLink]="['/ajoutCommentaire',intervention['client']+'&'+intervention['voiture']+'&'+intervention['technicien']]"><i class="fas fa-clipboard"></i></button>
+                        </td>   
+                          
                     </tr>
                 </tbody>
             </table>

@@ -81,3 +81,33 @@ def interventions_number():
         f"SELECT count(*)  FROM {Intervention.table_name}")
     result = connector.fetchone()
     return jsonify(result)
+
+
+@intervention_entries.route('/getCommentaireIntervention/<intervention>', methods=['GET'])
+def interventions_commmentaires(intervention):
+    client, matricule, technicien = intervention.split("&")
+    client_num = client.split("_")[0]
+    tech_num = technicien.split("_")[0]
+
+    connector = SqlConnectionManager(DATABASE_FILE)
+    connector.execute(
+        f"SELECT commentaire  FROM {Intervention.table_name} WHERE "
+        f"numero_tech =? AND numero_client =? AND matricule = ?",
+        (tech_num, client_num, matricule))
+    result = connector.fetchone()
+    return jsonify(result)
+
+@intervention_entries.route('/ajoutCommentaireIntervention', methods=['POST'])
+def ajouter_commmentaires():
+    record = request.data.decode()
+    client, matricule, technicien,commentaire = record.split("&")
+    commentaire=commentaire.replace("-"," ")
+    client_num = client.split("_")[0]
+    tech_num = technicien.split("_")[0]
+    connector = SqlConnectionManager(DATABASE_FILE)
+    connector.execute(
+        f"UPDATE {Intervention.table_name} SET commentaire = ? WHERE "
+        f"numero_tech =? AND numero_client =? AND matricule = ?",
+        (commentaire,tech_num, client_num, matricule))
+    result = connector.fetchone()
+    return jsonify(result)

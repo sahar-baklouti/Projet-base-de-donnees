@@ -1,0 +1,27 @@
+<app-header></app-header>
+
+<div class="container">
+    <form [formGroup]="ajoutCommentaireForm" (ngSubmit)="ajouter()">
+        <div class="row">
+            <div class="col mt-5 mb-3">
+                <h1 style="color:darkred">Ajouter un commentaire</h1>
+                
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-ml-6">
+                <div class="form-group">
+                    <label for="commentaire">Le commentaire</label>
+                    <input type="text" class="form-control" id="commentaire" [value]="_commentaire" name="commentaire"  formControlName="commentaire" style="width: 500px; ">
+                    
+                </div>
+            </div>
+        
+            
+            
+        </div>
+        <button type="submit" class="btn btn-primary" >Enregistrer</button>
+    </form>
+</div>  
+
+
