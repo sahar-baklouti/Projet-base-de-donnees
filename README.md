@@ -42,7 +42,7 @@ cd Projet-base-de-donnees
 pip install -r requirement.txt
 npm install @angular/cli
 ```
-It all thanks, you can now run the project
+you can now run the project
 
 # Run The Project
 ### Windows
