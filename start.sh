@@ -1,2 +1,2 @@
 python3 testflask.py &
-cd project-garage && ng serve
+cd project-garage && npm start
