@@ -57,3 +57,8 @@ Open a terminal
 cd Projet-base-de-donnees
 sh start.sh
 ```
+# Welcome to the garage
+Dans un navigateur se rendre à l'adresse : http://localhost:4200/
+Connectez avec : 
+1) 1_Dupin_Paul : 4569 (administrateur de la base de données)
+2) 2_Creuzet_Victor : 9632
