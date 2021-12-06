@@ -14,7 +14,7 @@ from database.sql_conection_manager import SqlConnectionManager
 
 
 def reset_database():
-    os.remove(f"database/{DATABASE_FILE}")
+    #os.remove(f"database/{DATABASE_FILE}")
 
     connector = SqlConnectionManager(DATABASE_FILE)
     Voiture.create_table(connector)

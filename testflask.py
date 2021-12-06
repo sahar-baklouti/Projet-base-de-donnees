@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
+import os
 
 import reset_base
 from entrypoint.client import client_entries
@@ -22,5 +23,6 @@ app.register_blueprint(commune_entries)
 app.register_blueprint(forfait_entries)
 
 if __name__ == '__main__':
-    reset_base.reset_database()
+    if not os.path.isfile("database/data.sqlite3") :
+        reset_base.reset_database()
     app.run(debug=True)
