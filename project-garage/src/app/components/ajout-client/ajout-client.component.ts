@@ -64,9 +64,13 @@ export class AjoutClientComponent implements OnInit {
     
   }
   ajouter (){
-    
+    let e = <HTMLSelectElement>document.getElementById("adresse");
+  let _adr = e.options[e.selectedIndex].text;
+    e = <HTMLSelectElement>document.getElementById("responsable");
+  let _respo = e.options[e.selectedIndex].text;
+
     let infos = this.ajoutClientForm.value;
-    let clientInstance = new Client("0",infos.prenom,infos.nom,infos.adresse,infos.responsable);
+    let clientInstance = new Client("0",infos.prenom,infos.nom,_adr,_respo);
     
     this._clientService.ajouterClient(clientInstance).subscribe(
       result => {

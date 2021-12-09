@@ -35,7 +35,7 @@ def update_client():
     connector = SqlConnectionManager(DATABASE_FILE)
     record = json.loads(request.data)
     record["nom_commune"] = record.pop("adresse")
-    record["id_admin"] = record.pop("responsable")
+    record["id_admin"] = record.pop("responsable").split("_")[0]
     num = {"numero_client": record.pop("num")}
 
     connector.update_into_data_base(Client.table_name, num, record)
@@ -51,7 +51,7 @@ def ajouter_client():
 
     record.pop("num")
     record["nom_commune"] = record.pop("adresse")
-    record["id_admin"] = record.pop("responsable")
+    record["id_admin"] = record.pop("responsable").split("_")[0]
 
     #Commune.check_insert(connector, record["nom_commune"])
 
